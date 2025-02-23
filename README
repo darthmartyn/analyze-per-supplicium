@@ -1,0 +1,18 @@
+The application source code is held in the 'src' directory and there is a workflows Makefile called Makefile.das
+
+Dynamic Verification - Makefile.das
+-----------------------------------
+make -f Makefile.das gen-ut
+    => Uses GNATtest to generate (or update existing) test cases in verification/gnatdas/gnatdas_tests.
+    => Additions to these *-test_data-tests.adb files, will be protected as long as they are
+    => outside the areas which will be overwritteby regeneration.
+
+make -f Makefile.das build-ut
+    => Builds the *-test_data-tests.adb files and their dependencies into obj\gnattest
+
+make -f Makefile.das run-ut
+    => Executes the executable written to obj\gnattes by the previous workflow
+
+make -f Makefile.das cov-ut
+    => The 'gen-ut' workflow has produced a Makefile in /obj/gnattest which will perform coverage analysis
+    => on the units under test. HTML and XML reports into verification/gnatdas/mcdc_results

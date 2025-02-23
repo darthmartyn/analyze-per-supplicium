@@ -1,0 +1,29 @@
+project DAS is
+
+   Source_Directory := Project'Project_Dir & "/src";
+   User_Tests_Directory := Project'Project_Dir & "/verification/gnatdas/user_tests";
+   Generated_Tests_Directory := Project'Project_Dir & "/verification/gnatdas/gnattest_tests";
+   Object_Directory := Project'Project_Dir & "/obj";
+   Results_Directory := Project'Project_Dir & "/verification/gnatdas/mcdc_results";
+
+   for Languages use ("Ada");
+   for Source_Dirs use (Source_Directory, User_Tests_Directory);
+   for Object_Dir use Object_Directory;
+
+   for Excluded_Source_Files use ("standalone_test_runner.adb");
+
+   package GNATtest is
+      for Tests_Dir use Generated_Tests_Directory;
+      for Harness_Dir use "gnattest";
+      for Skeletons_Default use "fail";
+   end GNATtest;
+
+   package Coverage is
+      for Excluded_Units use ("engines.test_stable");
+      level := "--level=stmt+mcdc";
+      for Switches ("instrument") use (level);
+      for Switches ("run") use (level);
+      for Switches ("coverage") use (level, "--output-dir=" & Results_Directory, "--annotate=dhtml,xml");
+   end Coverage;
+
+end DAS;
