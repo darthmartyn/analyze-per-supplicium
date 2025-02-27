@@ -1,7 +1,7 @@
-project DAS is
+project GNATdas is
 
    Source_Directory := Project'Project_Dir & "/src";
-   User_Tests_Directory := Project'Project_Dir & "/verification/gnatdas/user_tests";
+   User_Tests_Directory := Source_Directory & "/ut";
    Generated_Tests_Directory := Project'Project_Dir & "/verification/gnatdas/gnattest_tests";
    Object_Directory := Project'Project_Dir & "/obj";
    Results_Directory := Project'Project_Dir & "/verification/gnatdas/mcdc_results";
@@ -26,4 +26,4 @@ project DAS is
       for Switches ("coverage") use (level, "--output-dir=" & Results_Directory, "--annotate=dhtml,xml");
    end Coverage;
 
-end DAS;
+end GNATdas;

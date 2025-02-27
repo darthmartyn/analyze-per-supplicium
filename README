@@ -1,18 +1,8 @@
-The application source code is held in the 'src' directory and there is a workflows Makefile called Makefile.das
+There is a single testcase file in .\src\ut\engines-test_stable.adb and it can be ran in 2 ways.
 
-Dynamic Verification - Makefile.das
------------------------------------
-make -f Makefile.das gen-ut
-    => Uses GNATtest to generate (or update existing) test cases in verification/gnatdas/gnatdas_tests.
-    => Additions to these *-test_data-tests.adb files, will be protected as long as they are
-    => outside the areas which will be overwritteby regeneration.
+(1) standalone, via the .\src\ut\standalone_test_runner.adb main program and the 'make -f Makefile.das standalone' command
 
-make -f Makefile.das build-ut
-    => Builds the *-test_data-tests.adb files and their dependencies into obj\gnattest
+(2) by calling engines.test_stable from a GNATtest unit test harness. First run 'make -f Makefile.das gen-ut' and then
+add a with and a call to engines.test_stable in the .\verification\gnatdas\gnattest_tests\engines-test_data-tests.adb source code file.
+You can then run 'make -f Makefile.das cov-ut' to get XML and HTML coverage reports in .\verification\gnatdas\mcdc_results
 
-make -f Makefile.das run-ut
-    => Executes the executable written to obj\gnattes by the previous workflow
-
-make -f Makefile.das cov-ut
-    => The 'gen-ut' workflow has produced a Makefile in /obj/gnattest which will perform coverage analysis
-    => on the units under test. HTML and XML reports into verification/gnatdas/mcdc_results

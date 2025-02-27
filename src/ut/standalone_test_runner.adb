@@ -1,5 +1,6 @@
 with Ada.Text_IO;
 with Engines.Test_Stable;
+with AUnit;
 
 procedure Standalone_Test_Runner is
 begin

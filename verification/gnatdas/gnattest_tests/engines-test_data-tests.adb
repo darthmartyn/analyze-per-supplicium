@@ -14,7 +14,7 @@ with System.Assertions;
 --  This section can be used to add with clauses if necessary.
 --
 --  end read only
-
+with Engines.Test_Stable;
 --  begin read only
 --  end read only
 package body Engines.Test_Data.Tests is
@@ -41,9 +41,7 @@ package body Engines.Test_Data.Tests is
 
    begin
 
-      AUnit.Assertions.Assert
-        (Gnattest_Generated.Default_Assert_Value,
-         "Test not implemented.");
+      Engines.Test_Stable;
 
 --  begin read only
    end Test_Stable;
