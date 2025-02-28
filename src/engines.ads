@@ -37,7 +37,7 @@ package Engines is
    Stable_Engine_Data : Engine_Ptr_Type := new Engine'(P => Stable_P, T => Stable_T);
 
    function Stable (E : Engine) return Boolean;
-   --  Whether the engine E is stable, iff both Pressure and Temperature
+   --  Whether the engine E is stable, if both Pressure and Temperature
    --  are below the stability threshold.
 
 end Engines;
