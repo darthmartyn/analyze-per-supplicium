@@ -1,3 +1,5 @@
+GNAT Dynamic Analysis Suite Kickstart Workflow
+----------------------------------------------
 There is a single testcase file in .\src\ut\engines-test_stable.adb and it can be ran in 2 ways.
 
 (1) standalone, via the .\src\ut\standalone_test_runner.adb main program and the 'make standalone' command
