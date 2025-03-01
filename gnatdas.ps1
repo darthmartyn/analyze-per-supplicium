@@ -1,4 +1,4 @@
-param ( [string[]]$action = 'setup' ) 
+param ([string[]]$action = 'setup') 
 
 $resultsdir = Join-Path $PSScriptRoot "\verification\gnatdas\mcdc_results"
 $gnattests = Join-Path $PSScriptRoot "\verification\gnatdas\gnattest_tests"
