@@ -15,7 +15,6 @@ along with a subprogram body:
 > &nbsp;&nbsp;&nbsp;&nbsp;return E.P < Stable_Engine_Data.P and then E.T < Stable_Engine_Data.T;<br>
 > end Stable;
 
-The remainder of this workflow centers around unit testing and MC/DC coverage <br>
-analysis of the ***Stable*** subprogram.
+<p>The remainder of this workflow centers around unit testing and MC/DC coverage analysis of the ***Stable*** subprogram.</p>
 
 
