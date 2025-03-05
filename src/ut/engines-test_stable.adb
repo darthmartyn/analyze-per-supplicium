@@ -1,5 +1,7 @@
-pragma Ada_2012;
+pragma Ada_95;
 with Ada.Assertions;
+-- or use
+-- with Aunit;
 
 procedure Engines.Test_Stable is
 
@@ -33,7 +35,7 @@ begin
          when 3 =>
 
             -- to fail MC/DC, uncomment the following line
-            --exit;
+            exit;
 
             Ada.Assertions.Assert
                (Stable (Engine_Data_Samples (Engine_Data_Sample).all) = False,
