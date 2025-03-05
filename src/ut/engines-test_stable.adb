@@ -1,7 +1,4 @@
-pragma Ada_95;
-with Ada.Assertions;
--- or use
--- with Aunit;
+with Ada.Assertions; use Ada.Assertions;
 
 procedure Engines.Test_Stable is
 
@@ -22,24 +19,39 @@ begin
 
          when 1 =>
 
-            Ada.Assertions.Assert
-               (Stable (Engine_Data_Samples (Engine_Data_Sample).all) = True,
-                "Unexpected unstable Engine - sample " & Engine_Data_Sample'Img);
+            declare
+               Actual_Result : constant Boolean :=
+                  Stable (Engine_Data_Samples (Engine_Data_Sample).all);
+               Expected_Result : constant Boolean := True;
+               Passed : constant Boolean := Actual_Result = Expected_Result;
+            begin
+               Assert (Passed,"actual result /= expected result");
+            end;
 
          when 2 =>
 
-            Ada.Assertions.Assert
-               (Stable (Engine_Data_Samples (Engine_Data_Sample).all) = False,
-                "Unexpected unstable Engine - sample " & Engine_Data_Sample'Img);
-                
+            declare
+               Actual_Result : constant Boolean :=
+                  Stable (Engine_Data_Samples (Engine_Data_Sample).all);
+               Expected_Result : constant Boolean := False;
+               Passed : constant Boolean := Actual_Result = Expected_Result;
+            begin
+               Assert (Passed,"actual result /= expected result");
+            end;
+
          when 3 =>
 
             -- to fail MC/DC, uncomment the following line
-            exit;
-
-            Ada.Assertions.Assert
-               (Stable (Engine_Data_Samples (Engine_Data_Sample).all) = False,
-                "Unexpected unstable Engine " & Engine_Data_Sample'Img);
+            --exit;
+            
+            declare
+               Actual_Result : constant Boolean :=
+                  Stable (Engine_Data_Samples (Engine_Data_Sample).all);
+               Expected_Result : constant Boolean := False;
+               Passed : constant Boolean := Actual_Result = Expected_Result;
+            begin
+               Assert (Passed,"actual result /= expected result");
+            end;
 
       end case;
 
