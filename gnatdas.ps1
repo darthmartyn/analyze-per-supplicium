@@ -18,7 +18,7 @@ if ($action -eq "setup") {
 } elseif ($action -eq "cov-ut") {
     Start-Process make -ArgumentList "--directory=./obj/gnattest coverage" -NoNewWindow -Wait
 } elseif ($action -eq "standalone") {
-    Start-Process gprbuild -ArgumentList "--implicit-with=aunit.gpr -p -P standalone.gpr -bargs -E" -NoNewWindow -Wait
+    Start-Process gprbuild -ArgumentList "--implicit-with=aunit.gpr -g -p -P standalone.gpr -bargs -E" -NoNewWindow -Wait
     if (Test-Path $standalone) {
         Start-Process $($standalone) -NoNewWindow -Wait
     }
