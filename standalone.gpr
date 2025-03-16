@@ -1,10 +1,11 @@
 project standalone is
 
-    Source_Directory := Project'Project_Dir & "/src";
-    User_Tests_Directory := Source_Directory & "/ut";
+    UUT_Source_Directory := Project'Project_Dir & "/src";
+    User_Tests_Directory := UUT_Source_Directory & "/ut";
+    Standalone_Runner_Directory := User_Tests_Directory & "/standalone";
     Object_Directory := Project'Project_Dir & "/obj/gprbuild";
 
-    for Source_Dirs use (Source_Directory,User_Tests_Directory);
+    for Source_Dirs use (UUT_Source_Directory,User_Tests_Directory,Standalone_Runner_Directory);
     for Object_Dir use Object_Directory;
     for Main use ("standalone_test_runner.adb");
 

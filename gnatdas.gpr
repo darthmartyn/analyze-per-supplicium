@@ -1,16 +1,16 @@
 project GNATdas is
 
-   Source_Directory := Project'Project_Dir & "/src";
-   User_Tests_Directory := Source_Directory & "/ut";
+   UUT_Source_Directory := Project'Project_Dir & "/src";
+   User_Tests_Directory := UUT_Source_Directory & "/ut";
    Generated_Tests_Directory := Project'Project_Dir & "/verification/gnatdas/gnattest_tests";
    Object_Directory := Project'Project_Dir & "/obj";
    Results_Directory := Project'Project_Dir & "/verification/gnatdas/mcdc_results";
 
    for Languages use ("Ada");
-   for Source_Dirs use (Source_Directory, User_Tests_Directory);
+   for Source_Dirs use (UUT_Source_Directory, User_Tests_Directory);
    for Object_Dir use Object_Directory;
 
-   for Excluded_Source_Files use ("standalone_test_runner.adb");
+   for Excluded_Source_Dirs use (User_Tests_Directory & "/standalone");
 
    package GNATtest is
       for Tests_Dir use Generated_Tests_Directory;
