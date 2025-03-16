@@ -25,7 +25,7 @@ This subprogram makes several calls to *Engines.Stable*, on each occasion checki
 
 ### Standalone Test Development
 
-Alongside ***engines-test_stable.adb***, there is a second Ada unit in a subdirectory called ***standalone***:
+Alongside ***engines-test_stable.adb***, there is a second Ada unit in a subdirectory called ***standalone***: 
 
 > standalone_test_runner.adb
 
