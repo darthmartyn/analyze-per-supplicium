@@ -12,7 +12,7 @@ procedure Engines.Test_Stable is
       3 => new Engines.Engine'(P => 10, T => 49)); -- False && True will be False
 
 begin
-
+  
    for Engine_Data_Sample in Engine_Data_Samples'Range loop
 
       case Engine_Data_Sample is
@@ -55,6 +55,6 @@ begin
 
       end case;
 
-   end loop;   
+   end loop;
 
 end Engines.Test_Stable;
